@@ -1,0 +1,60 @@
+/*Clientes*/
+
+.testimonios {
+    font-size: 30px;
+
+    p {
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    h1 h2 h3 h4 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+}
+
+footer h3 {
+    font-size: 30px;
+}
+
+/*imagenes*/
+
+.testimonios {
+    max-width: 100%;
+}
+
+.testimonio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+    padding: 20px;
+    background-color: $color-hex;
+    box-sizing: border-box;
+
+    .imagen-cliente {
+        width: 25%;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .texto-testimonio {
+        max-width: 60%;
+
+        h2,
+        h3,
+        h4 {
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0 0;
+        }
+    }
+}
