@@ -59,4 +59,3 @@ function calcularPresupuesto() {
 
 // Escucha el evento de clic en el botón "Calcular Total"
 document.getElementById('btnCalcular').addEventListener('click', calcularPresupuesto);
-
