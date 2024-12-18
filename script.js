@@ -43,3 +43,20 @@ document.getElementById("btnenviar").addEventListener("click", (e) => {
 
 console.log("Archivo script.js cargado correctamente");
 
+// Función para calcular el presupuesto
+function calcularPresupuesto() {
+    let total = 0;
+
+    const serviciosSeleccionados = document.querySelectorAll('.servicio:checked');
+
+    serviciosSeleccionados.forEach(servicio => {
+        const precio = parseInt(servicio.getAttribute('data-precio')) || 0;
+        total += precio;
+    });
+
+    document.getElementById('total').textContent = total;
+}
+
+// Escucha el evento de clic en el botón "Calcular Total"
+document.getElementById('btnCalcular').addEventListener('click', calcularPresupuesto);
+

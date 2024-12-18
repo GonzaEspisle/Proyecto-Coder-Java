@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pagina de Herramientas de Cotizacion-Simulador de presupuesto y ROI">
     <title>Contacto</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">  
     <link rel="shortcut icon" href="../icons/logo-brightway-ico.ico" type="image/x-icon">
 </head>
+
 <body id="body">
     <header id="header">
         <nav class="nav">
             <input type="checkbox" id="nav__checkbox" class="nav__checkbox">
             <label for="nav__checkbox" class="nav__toggle">
-            <img src="../images/menu-hamburguesa.png" class="hamburger" alt="menu-hamburguesa"/>
-            <img src="../images/cierre-menu.png" class="close" alt="cierre-menu"/>
+                <img src="../images/menu-hamburguesa.png" class="hamburger" alt="menu-hamburguesa" />
+                <img src="../images/cierre-menu.png" class="close" alt="cierre-menu" />
             </label>
             <ul class="nav__menu">
-            <li>
-                <a href="../index.html">
-                    <img src="../images/logo-brightway.jpg" class="logo-chiquito" alt="logo"/>
-                </a>
-            </li>
+                <li>
+                    <a href="../index.html">
+                        <img src="../images/logo-brightway.jpg" class="logo-chiquito" alt="logo" />
+                    </a>
+                </li>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../pages/nosotros.html">Nosotros</a></li>
                 <li><a href="../pages/clientes.html">Clientes</a></li>
@@ -31,28 +33,68 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <h1>Cotización y Calculadora de Roi (Retorno de Inversion) </h1> 
+        <h1>Cotización y Calculadora de Roi (Retorno de Inversion)</h1>
+        
+        <section id="cotizacion">
+            <h2>Simulador de Presupuesto</h2>
+            <p>Selecciona los servicios que deseas cotizar:</p>
+
+            <form id="formPresupuesto">
+                <label>
+                    <input type="checkbox" class="servicio" data-precio="5000">
+                    SEO - Optimización para buscadores ($5000)
+                </label><br>
+
+                <label>
+                    <input type="checkbox" class="servicio" data-precio="7000">
+                    Redes Sociales - Gestión de contenido ($7000)
+                </label><br>
+
+                <label>
+                    <input type="checkbox" class="servicio" data-precio="4000">
+                    Email Marketing - Campañas de correo ($4000)
+                </label><br>
+
+                <label>
+                    <input type="checkbox" class="servicio" data-precio="6000">
+                    Publicidad Online - Google Ads ($6000)
+                </label><br>
+
+                <button type="button" id="btnCalcular">Calcular Total</button>
+            </form>
+
+            <div id="resultado">
+                <h3>Total estimado: $<span id="total">0</span></h3>
+            </div>
+        </section>
+
     </main>
+
     <div class="footer">
         <footer>
             <li>
                 <a href="../index.html">
-                <img src="../images/logo-brightway.jpg"  class="logo-chiquito-footer" alt="logo-footer">
+                    <img src="../images/logo-brightway.jpg" class="logo-chiquito-footer" alt="logo-footer">
                 </a>
             </li>
-                <h4>Copyright © 2024 - Gonzalo Espisle - Todos los derechos reservados</h4>
+            <h4>Copyright © 2024 - Gonzalo Espisle - Todos los derechos reservados</h4>
     </div>
-        <div class="redes-sociales">
-                <p>Seguinos en nuestras Redes: </p>
-                <a href="https://www.instagram.com/" target="_blank"><img src="../images/logo-instagram.png" alt="logo-instagram"></a> 
-                <a href="https://www.youtube.com/" target="_blank"><img src="../images/logo-youtube.png" alt="logo-youtube"></a>
-                <a href="https://www.facebook.com/" target="_blank"><img src="../images/logo-facebook.png" alt="logo-facebook"></a>
-                <a href="https://x.com/home" target="_blank"><img src="../images/logo-twitter.png" alt="logo-twitter"></a>  
-        </div>
-    
+
+    <div class="redes-sociales">
+        <p>Seguinos en nuestras Redes: </p>
+        <a href="https://www.instagram.com/" target="_blank"><img src="../images/logo-instagram.png"
+                alt="logo-instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="../images/logo-youtube.png" alt="logo-youtube"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="../images/logo-facebook.png"
+                alt="logo-facebook"></a>
+        <a href="https://x.com/home" target="_blank"><img src="../images/logo-twitter.png" alt="logo-twitter"></a>
+    </div>
+
     <script src="../script.js"></script>
-    
-        </footer>
+
+    </footer>
 </body>
+
 </html>
