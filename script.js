@@ -1,3 +1,7 @@
+console.log('Script cargado');
+
+// Funcion Validar Form de contacto //
+
 function validarFormulario() {
     const nombre = document.querySelector(".field[placeholder='Nombre/Apellido']").value.trim();
     const email = document.querySelector(".field[placeholder='E-mail']").value.trim();
@@ -36,14 +40,12 @@ function validarFormulario() {
 }
 
 
-document.getElementById("btnenviar").addEventListener("click", (e) => {
-    e.preventDefault();
-    validarFormulario();
-});
+
 
 console.log("Archivo script.js cargado correctamente");
 
 // Función para calcular el presupuesto
+
 function calcularPresupuesto() {
     let total = 0;
 
@@ -57,5 +59,43 @@ function calcularPresupuesto() {
     document.getElementById('total').textContent = total;
 }
 
-// Escucha el evento de clic en el botón "Calcular Total"
+
 document.getElementById('btnCalcular').addEventListener('click', calcularPresupuesto);
+
+// Función De ROI
+function calcularRoi() {
+    const ingreso = parseFloat(document.getElementById('ingreso').value);
+    const inversion = parseFloat(document.getElementById('inversion').value);
+
+    console.log('Ingreso ingresado:', ingreso);
+    console.log('Inversión ingresada:', inversion);
+
+    const resultadoRoi = document.getElementById('roi');
+
+
+    if (isNaN(ingreso) || isNaN(inversion) || ingreso <= 0 || inversion <= 0) {
+        console.error('Valores no válidos detectados.');
+        resultadoRoi.textContent = "Por favor, ingresa valores válidos.";
+        resultadoRoi.style.color = "red";
+        return;
+    }
+
+
+    const roi = ((ingreso - inversion) / inversion) * 100;
+
+
+    resultadoRoi.textContent = roi.toFixed(2);
+    resultadoRoi.style.color = "green";
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const botonCalcularRoi = document.getElementById('btnCalcularRoi');
+
+    if (botonCalcularRoi) {
+        botonCalcularRoi.addEventListener('click', calcularRoi);
+        console.log("Botón de cálculo de ROI listo.");
+    } else {
+        console.error("El botón 'btnCalcularRoi' no fue encontrado en el DOM.");
+    }
+});

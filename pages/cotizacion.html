@@ -60,6 +60,22 @@
                 <h3>Total estimado: $<span id="total">0</span></h3>
             </div>
         </section>
+        <section id="simulador-roi">
+            <h2>Calculadora de Retorno sobre la Inversión</h2>
+            <form id="formRoi">
+                <label for="ingreso">Ingresos generados:</label>
+                <input type="number" id="ingreso" placeholder="Ejemplo: 50000" required>
+
+                <label for="inversion">Inversión realizada:</label>
+                <input type="number" id="inversion" placeholder="Ejemplo: 20000" required>
+
+                <button type="button" id="btnCalcularRoi">Calcular ROI</button>
+            </form>
+
+            <div id="resultado-roi">
+                <h3>Tu ROI es: <span id="roi">0</span>%</h3>
+            </div>
+        </section>
     </main>
     <div class="footer">
         <footer>
@@ -88,7 +104,6 @@
             <img src="../images/logo-twitter.png" alt="logo-twitter">
         </a>
     </div>
-    <script src="../scripts.js"></script>
+    <script src="../script.js"></script>
 </body>
-
 </html>
