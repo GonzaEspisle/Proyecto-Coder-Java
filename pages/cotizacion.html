@@ -34,22 +34,20 @@
         </nav>
     </header>
     <main>
-        <h1>Cotización y Calculadora de Roi (Retorno de Inversion)</h1>
+        <h1>Cotización y Calculadora de ROI</h1>
+    
         <section id="cotizacion">
             <h2>Simulador de Presupuesto</h2>
             <p>Selecciona los servicios que deseas cotizar:</p>
             <form id="formPresupuesto">
                 <label>
-                    <input type="checkbox" class="servicio" data-precio="5000"> SEO - Optimización para buscadores
-                    ($5000)
+                    <input type="checkbox" class="servicio" data-precio="5000"> SEO - Optimización para buscadores ($5000)
                 </label><br>
                 <label>
-                    <input type="checkbox" class="servicio" data-precio="7000"> Redes Sociales - Gestión de contenido
-                    ($7000)
+                    <input type="checkbox" class="servicio" data-precio="7000"> Redes Sociales - Gestión de contenido ($7000)
                 </label><br>
                 <label>
-                    <input type="checkbox" class="servicio" data-precio="4000"> Email Marketing - Campañas de correo
-                    ($4000)
+                    <input type="checkbox" class="servicio" data-precio="4000"> Email Marketing - Campañas de correo ($4000)
                 </label><br>
                 <label>
                     <input type="checkbox" class="servicio" data-precio="6000"> Publicidad Online - Google Ads ($6000)
@@ -60,19 +58,16 @@
                 <h3>Total estimado: $<span id="total">0</span></h3>
             </div>
         </section>
-
+    
         <section id="simulador-roi">
-            <h2>Calculadora de ROI:</h2>
+            <h2>Calculadora de ROI</h2>
             <form id="formRoi">
                 <label for="ingreso">Ingresos generados:</label>
                 <input type="number" id="ingreso" placeholder="Ejemplo: 50000" required>
-
                 <label for="inversion">Inversión realizada:</label>
                 <input type="number" id="inversion" placeholder="Ejemplo: 20000" required>
-
                 <button type="button" id="btnCalcularRoi">Calcular ROI</button>
             </form>
-
             <div id="resultado-roi">
                 <h3>Tu ROI es: <span id="roi">0</span>%</h3>
             </div>

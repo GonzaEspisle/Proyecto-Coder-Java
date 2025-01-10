@@ -1,51 +1,86 @@
 console.log('Script cargado');
 
-// Funcion Validar Form de contacto //
+document.addEventListener("DOMContentLoaded", () => {
+    const formContacto = document.getElementById("formContacto");
+    const mensaje = document.getElementById("mensaje");
 
-function validarFormulario() {
-    const nombre = document.querySelector(".field[placeholder='Nombre/Apellido']").value.trim();
-    const email = document.querySelector(".field[placeholder='E-mail']").value.trim();
-    const telefono = document.querySelector(".field[placeholder='Telefono']").value.trim();
-    const mensaje = document.querySelector(".field.area").value.trim();
-    const contenedorMensaje = document.getElementById("mensaje");
+    formContacto.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        validarFormulario();
+    });
 
+    function validarFormulario() {
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const mensajeTexto = document.getElementById("mensaje-texto").value.trim();
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        mensaje.textContent = "";
+        mensaje.classList.remove("error", "exito");
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    contenedorMensaje.textContent = "";
-    contenedorMensaje.classList.remove("error", "exito");
+        if (!nombre || !email || !telefono || !mensajeTexto) {
+            mensaje.textContent = "Por favor, completa todos los campos.";
+            mensaje.classList.add("error");
+            return false;
+        }
 
-    if (!nombre || !email || !telefono || !mensaje) {
-        contenedorMensaje.textContent = "Por favor, completa todos los campos.";
-        contenedorMensaje.classList.add("error");
-        return false;
+        if (!emailRegex.test(email)) {
+            mensaje.textContent = "Por favor, ingresa un correo electrónico válido.";
+            mensaje.classList.add("error");
+            return false;
+        }
+
+        if (isNaN(telefono) || telefono.length < 10) {
+            mensaje.textContent = "El número de teléfono debe ser válido y contener al menos 10 dígitos.";
+            mensaje.classList.add("error");
+            return false;
+        }
+
+        mensaje.textContent = "¡Consulta enviada exitosamente!";
+        mensaje.classList.add("exito");
+        return true;
     }
+});
 
-    if (!emailRegex.test(email)) {
-        contenedorMensaje.textContent = "Por favor, ingresa un correo electrónico válido.";
-        contenedorMensaje.classList.add("error");
-        return false;
+
+// Array de inversiones
+const inversiones = [
+    {
+        nombre: "Inversión A",
+        descripcion: "Alta rentabilidad a corto plazo",
+        tasaRetorno: 12.5
+    },
+    {
+        nombre: "Inversión B",
+        descripcion: "Moderada rentabilidad a mediano plazo",
+        tasaRetorno: 8.2
+    },
+    {
+        nombre: "Inversión C",
+        descripcion: "Baja rentabilidad a largo plazo",
+        tasaRetorno: 5.3
     }
+];
 
-    if (isNaN(telefono) || telefono.length < 7) {
-        contenedorMensaje.textContent = "El número de teléfono debe ser válido y contener al menos 7 dígitos.";
-        contenedorMensaje.classList.add("error");
-        return false;
+// Función para mostrar las inversiones
+function mostrarInversiones() {
+    const listaInversiones = document.getElementById('listaInversiones');
+
+    if (listaInversiones) {
+        listaInversiones.innerHTML = ""; // Limpiar lista previa
+        
+        inversiones.forEach((inversion, index) => {
+            const item = document.createElement('li');
+            item.textContent = `${index + 1}. ${inversion.nombre} - ${inversion.descripcion} (Tasa de Retorno: ${inversion.tasaRetorno}%)`;
+            listaInversiones.appendChild(item);
+        });
     }
-
-    contenedorMensaje.textContent = "¡Consulta enviada exitosamente!";
-    contenedorMensaje.classList.add("exito");
-    return true;
 }
 
 
-
-
-console.log("Archivo script.js cargado correctamente");
-
 // Función para calcular el presupuesto
-
 function calcularPresupuesto() {
     let total = 0;
 
@@ -59,10 +94,7 @@ function calcularPresupuesto() {
     document.getElementById('total').textContent = total;
 }
 
-
-document.getElementById('btnCalcular').addEventListener('click', calcularPresupuesto);
-
-// Función De ROI
+// Función para calcular el ROI
 function calcularRoi() {
     const ingreso = parseFloat(document.getElementById('ingreso').value);
     const inversion = parseFloat(document.getElementById('inversion').value);
@@ -72,7 +104,6 @@ function calcularRoi() {
 
     const resultadoRoi = document.getElementById('roi');
 
-
     if (isNaN(ingreso) || isNaN(inversion) || ingreso <= 0 || inversion <= 0) {
         console.error('Valores no válidos detectados.');
         resultadoRoi.textContent = "Por favor, ingresa valores válidos.";
@@ -80,9 +111,7 @@ function calcularRoi() {
         return;
     }
 
-
     const roi = ((ingreso - inversion) / inversion) * 100;
-
 
     resultadoRoi.textContent = roi.toFixed(2);
     resultadoRoi.style.color = "green";
@@ -91,6 +120,8 @@ function calcularRoi() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const botonCalcularRoi = document.getElementById('btnCalcularRoi');
+    const botonCalcularPresupuesto = document.getElementById('btnCalcular');
+    const formularioContacto = document.getElementById('formContacto'); 
 
     if (botonCalcularRoi) {
         botonCalcularRoi.addEventListener('click', calcularRoi);
@@ -98,4 +129,26 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("El botón 'btnCalcularRoi' no fue encontrado en el DOM.");
     }
+
+    if (botonCalcularPresupuesto) {
+        botonCalcularPresupuesto.addEventListener('click', calcularPresupuesto);
+        console.log("Botón de cálculo de presupuesto listo.");
+    } else {
+        console.error("El botón 'btnCalcular' no fue encontrado en el DOM.");
+    }
+
+    if (formularioContacto) {
+        formularioContacto.addEventListener('submit', (event) => {
+            if (!validarFormulario()) {
+                event.preventDefault();
+            }
+        });
+        console.log("Validación del formulario de contacto lista.");
+    } else {
+        console.error("El formulario de contacto no fue encontrado en el DOM.");
+    }
+
+    mostrarInversiones();
 });
+
+console.log("Archivo script.js cargado correctamente");

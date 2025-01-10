@@ -33,29 +33,21 @@
     </header>
     <main>
         <div class="container">
-
             <div class="contact-box">
-
                 <div class="left"></div>
-
                 <div class="right">
-
-                <h2>Contacto</h2>
-
-                <input type="text" class="field" placeholder="Nombre/Apellido">
-
-                <input type="email" class="field" placeholder="E-mail">
-
-                <input type="text" class="field" placeholder="Telefono">
-
-                <textarea class="field area" placeholder="Mensaje"></textarea>
-                <div id="mensaje" class="mensaje"></div>
-                <button class="btn" id="btnenviar">Enviar</button>
-
+                    <h2>Contacto</h2>
+                    <form id="formContacto">
+                        <input type="text" class="field" id="nombre" name="nombre" placeholder="Nombre/Apellido">
+                        <input type="email" class="field" id="email" name="email" placeholder="E-mail">
+                        <input type="text" class="field" id="telefono" name="telefono" placeholder="Telefono">
+                        <textarea class="field area" id="mensaje-texto" name="mensaje" placeholder="Mensaje"></textarea>
+                        <div id="mensaje" class="mensaje"></div>
+                        <button type="submit" class="btn" id="btnEnviar">Enviar</button>
+                    </form>
                 </div>
-                
             </div>
-            </div>
+        </div>
     </main>
     <div class="footer">
         <footer>
