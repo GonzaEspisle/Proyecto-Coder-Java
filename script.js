@@ -1,5 +1,7 @@
 console.log('Script cargado');
 
+//Formulario de Contacto//
+
 document.addEventListener("DOMContentLoaded", () => {
     const formContacto = document.getElementById("formContacto");
     const mensaje = document.getElementById("mensaje");
@@ -46,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Array de inversiones
+
+//Falta Agregar esto al html, ya que no es funcional aun
 const inversiones = [
     {
         nombre: "Inversión A",
@@ -65,11 +69,12 @@ const inversiones = [
 ];
 
 // Función para mostrar las inversiones
+
 function mostrarInversiones() {
     const listaInversiones = document.getElementById('listaInversiones');
 
     if (listaInversiones) {
-        listaInversiones.innerHTML = ""; // Limpiar lista previa
+        listaInversiones.innerHTML = ""; 
         
         inversiones.forEach((inversion, index) => {
             const item = document.createElement('li');
