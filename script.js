@@ -7,8 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensaje = document.getElementById("mensaje");
 
     formContacto.addEventListener("submit", (event) => {
-        event.preventDefault(); 
-        validarFormulario();
+        event.preventDefault();
+        if (validarFormulario()) {
+            almacenarEnLocalStorage();
+            reiniciarFormulario();
+        }
     });
 
     function validarFormulario() {
@@ -43,6 +46,27 @@ document.addEventListener("DOMContentLoaded", () => {
         mensaje.textContent = "¡Consulta enviada exitosamente!";
         mensaje.classList.add("exito");
         return true;
+    }
+
+    function almacenarEnLocalStorage() {
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const mensajeTexto = document.getElementById("mensaje-texto").value.trim();
+
+        const datosContacto = {
+            nombre: nombre,
+            email: email,
+            telefono: telefono,
+            mensaje: mensajeTexto,
+        };
+
+        localStorage.setItem("consultaContacto", JSON.stringify(datosContacto));
+        console.log("Datos almacenados en localStorage:", datosContacto);
+    }
+
+    function reiniciarFormulario() {
+        formContacto.reset();
     }
 });
 
@@ -99,29 +123,24 @@ function calcularPresupuesto() {
     document.getElementById('total').textContent = total;
 }
 
-// Función para calcular el ROI
+// Función para calcular ROI
+
+
 function calcularRoi() {
     const ingreso = parseFloat(document.getElementById('ingreso').value);
     const inversion = parseFloat(document.getElementById('inversion').value);
-
-    console.log('Ingreso ingresado:', ingreso);
-    console.log('Inversión ingresada:', inversion);
-
     const resultadoRoi = document.getElementById('roi');
 
     if (isNaN(ingreso) || isNaN(inversion) || ingreso <= 0 || inversion <= 0) {
-        console.error('Valores no válidos detectados.');
-        resultadoRoi.textContent = "Por favor, ingresa valores válidos.";
+        resultadoRoi.textContent = "Valores inválidos.";
         resultadoRoi.style.color = "red";
         return;
     }
 
     const roi = ((ingreso - inversion) / inversion) * 100;
-
     resultadoRoi.textContent = roi.toFixed(2);
     resultadoRoi.style.color = "green";
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const botonCalcularRoi = document.getElementById('btnCalcularRoi');
