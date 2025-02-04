@@ -1,10 +1,24 @@
-// Esperar a que el DOM esté cargado
+let nombre;
+
+function pedirNombre() {
+    nombre = prompt("Ingresa tu nombre:");
+    if (nombre) {
+        alert("¡Hola, " + nombre + "!");
+    } else {
+        alert("No se ingresó un nombre");
+    }
+}
+
+function borrarNombre() {
+    nombre = '';
+    alert("Nombre borrado");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     cargarInversiones();
     agregarEventos();
 });
 
-// Cargar inversiones desde un JSON local usando fetch
 async function cargarInversiones() {
     try {
         const response = await fetch("../data/inversiones.json");
@@ -20,7 +34,6 @@ async function cargarInversiones() {
     }
 }
 
-// Mostrar inversiones dinámicamente en el DOM
 function mostrarInversiones(inversiones) {
     const contenedor = document.getElementById("cotizacion");
     inversiones.forEach(({ nombre, descripcion, tasaRetorno }) => {
@@ -34,14 +47,11 @@ function mostrarInversiones(inversiones) {
     });
 }
 
-// Agregar eventos a los botones de cálculo
-targetEventListeners();
 function agregarEventos() {
     document.getElementById("btnCalcular").addEventListener("click", calcularPresupuesto);
     document.getElementById("btnCalcularRoi").addEventListener("click", calcularRoi);
 }
 
-// Calcular presupuesto total seleccionado
 function calcularPresupuesto() {
     let total = 0;
     document.querySelectorAll(".servicio:checked").forEach(({ dataset }) => {
@@ -55,11 +65,10 @@ function calcularPresupuesto() {
     });
 }
 
-// Calcular ROI
 function calcularRoi() {
     const ingreso = parseFloat(document.getElementById("ingreso").value);
     const inversion = parseFloat(document.getElementById("inversion").value);
-    
+
     if (isNaN(ingreso) || isNaN(inversion) || inversion === 0) {
         Swal.fire({
             icon: "warning",
@@ -77,4 +86,3 @@ function calcularRoi() {
         text: `Tu ROI es de ${roi.toFixed(2)}%`
     });
 }
-
