@@ -817,19 +817,38 @@ h2 {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 8px;
+  transition: all 0.3s ease-in-out;
 }
 #cotizacion h2 {
   text-align: center;
 }
-
-label {
-  display: block;
+#cotizacion label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 10px 0;
-}
-
-input[type=checkbox] {
-  margin-right: 10px;
+  padding: 8px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+#cotizacion label:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.02);
+}
+#cotizacion input[type=checkbox] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #2ecc71;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#cotizacion input[type=checkbox]:checked {
+  background-color: #2ecc71;
+  border-color: #27ae60;
 }
 
 #resultado {
@@ -849,42 +868,35 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 button:hover {
   background-color: #27ae60;
+  transform: scale(1.05);
 }
-button body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-button .container {
-  background-color: #fff;
+
+#simulador-roi {
+  margin: 40px auto;
   padding: 20px;
+  max-width: 400px;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
 }
-button h1,
-button h2 {
+#simulador-roi h2 {
   text-align: center;
 }
-button label {
+#simulador-roi label {
   display: block;
   margin: 15px 0 5px;
 }
-button input {
+#simulador-roi input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
-button button {
+#simulador-roi button {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -893,55 +905,10 @@ button button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
 }
-button button:hover {
+#simulador-roi button:hover {
   background-color: #0056b3;
-}
-button .result {
-  margin-top: 20px;
-  font-size: 18px;
-  text-align: center;
-  color: #27ae60;
-}
-button #cotizacion {
-  margin: 40px auto;
-  padding: 20px;
-  max-width: 600px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-button #cotizacion h2 {
-  text-align: center;
-}
-button label {
-  display: block;
-  margin: 10px 0;
-}
-button input[type=checkbox] {
-  margin-right: 10px;
-  cursor: pointer;
-}
-button #resultado {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2em;
-  color: #27ae60;
-}
-button button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-button button:hover {
-  background-color: #27ae60;
 }
 
 /*# sourceMappingURL=style.css.map */
