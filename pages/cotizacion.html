@@ -8,6 +8,7 @@
     <title>Cotizacion</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
     <link rel="shortcut icon" href="../icons/logo-brightway-ico.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body id="body">
@@ -36,6 +37,7 @@
     <main>
         <h1>Cotización y Calculadora de ROI</h1>
     
+        <!-- Sección de simulador de presupuesto -->
         <section id="cotizacion">
             <h2>Simulador de Presupuesto</h2>
             <p>Selecciona los servicios que deseas cotizar:</p>
@@ -59,6 +61,7 @@
             </div>
         </section>
     
+        <!-- Sección de simulador ROI -->
         <section id="simulador-roi">
             <h2>Calculadora de ROI</h2>
             <form id="formRoi">
@@ -71,6 +74,13 @@
             <div id="resultado-roi">
                 <h3>Tu ROI es: <span id="roi">0</span>%</h3>
             </div>
+        </section>
+        
+        <!-- Nueva sección: Guardar Nombre -->
+        <section id="pedir-nombre">
+            <h2>Guardar tu Nombre</h2>
+            <button id="btnPedirNombre">Ingresar Nombre</button>
+            <p id="nombreGuardado"></p>
         </section>
     </main>
     <div class="footer">
