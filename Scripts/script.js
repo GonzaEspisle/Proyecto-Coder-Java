@@ -1,4 +1,4 @@
-// Función para pedir el nombre y guardarlo en localStorage
+
 function pedirNombre() {
     let nombre = prompt("Ingresa tu nombre:");
     if (nombre) {
@@ -16,7 +16,7 @@ function pedirNombre() {
     }
 }
 
-// Mostrar nombre guardado al recargar la página
+
 function mostrarNombreGuardado() {
     let nombre = localStorage.getItem("nombreUsuario");
     if (nombre) {
@@ -27,7 +27,7 @@ function mostrarNombreGuardado() {
     }
 }
 
-// Calcular presupuesto según los servicios seleccionados
+
 function calcularPresupuesto() {
     let total = 0;
     document.querySelectorAll(".servicio:checked").forEach(function(element) {
@@ -42,11 +42,10 @@ function calcularPresupuesto() {
         text: total > 0 ? `El total estimado es de $${total}` : "Selecciona al menos un servicio antes de calcular."
     });
 
-    // Guardar en localStorage
     localStorage.setItem("cotizacionTotal", total);
 }
 
-// Cargar inversiones desde el JSON
+
 async function cargarInversiones() {
     try {
         const response = await fetch("../Data/inversiones.json");
@@ -63,10 +62,10 @@ async function cargarInversiones() {
     }
 }
 
-// Mostrar inversiones en el HTML
+
 function mostrarInversiones(inversiones) {
     const contenedor = document.getElementById("listaInversiones");
-    contenedor.innerHTML = ""; // Limpiar antes de agregar
+    contenedor.innerHTML = ""; 
     inversiones.forEach(({ nombre, descripcion, tasaRetorno }) => {
         const item = document.createElement("div");
         item.classList.add("inversion-item");
@@ -79,7 +78,7 @@ function mostrarInversiones(inversiones) {
     });
 }
 
-// Calcular ROI
+
 function calcularRoi() {
     const ingreso = parseFloat(document.getElementById("ingreso").value);
     const inversion = parseFloat(document.getElementById("inversion").value);
@@ -94,7 +93,7 @@ function calcularRoi() {
     Swal.fire({ icon: "info", text: `ROI: ${roi.toFixed(2)}%` });
 }
 
-// Eventos
+
 document.addEventListener("DOMContentLoaded", function() {
     mostrarNombreGuardado();
     cargarInversiones();
