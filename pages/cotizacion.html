@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pagina de Herramientas de Cotizacion-Simulador de presupuesto y ROI">
-    <title>Cotizacion</title>
+    <title>Cotización</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
     <link rel="shortcut icon" href="../icons/logo-brightway-ico.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -29,7 +29,6 @@
                 <li><a href="../pages/nosotros.html">Nosotros</a></li>
                 <li><a href="../pages/clientes.html">Clientes</a></li>
                 <li><a href="../pages/servicios.html">Servicios</a></li>
-                <li><a href="../pages/contacto.html">Contacto</a></li>
                 <li><a href="#">Cotización y Herramientas</a></li>
             </ul>
         </nav>
@@ -37,8 +36,8 @@
     <main>
         <h1>Cotización y Calculadora de ROI</h1>
     
-        <!-- Sección de simulador de presupuesto -->
         <section id="cotizacion">
+            
             <h2>Simulador de Presupuesto</h2>
             <p>Selecciona los servicios que deseas cotizar:</p>
             <form id="formPresupuesto">
@@ -61,27 +60,44 @@
             </div>
         </section>
     
-        <!-- Sección de simulador ROI -->
         <section id="simulador-roi">
             <h2>Calculadora de ROI</h2>
             <form id="formRoi">
                 <label for="ingreso">Ingresos generados:</label>
+
                 <input type="number" id="ingreso" placeholder="Ejemplo: 50000" required>
+
                 <label for="inversion">Inversión realizada:</label>
+
                 <input type="number" id="inversion" placeholder="Ejemplo: 20000" required>
+
                 <button type="button" id="btnCalcularRoi">Calcular ROI</button>
             </form>
             <div id="resultado-roi">
                 <h3>Tu ROI es: <span id="roi">0</span>%</h3>
             </div>
         </section>
-        
-        <!-- Nueva sección: Guardar Nombre -->
-        <section id="pedir-nombre">
-            <h2>Guardar tu Nombre</h2>
-            <button id="btnPedirNombre">Ingresar Nombre</button>
-            <p id="nombreGuardado"></p>
+
+        <section id="inversiones">
+            <h2>Oportunidades de Inversión</h2>
+
+            <p>A continuación, se muestran opciones de inversión con sus tasas de retorno:</p>
+
+            <div id="listaInversiones">
+                <!-- Aquí se cargarán dinámicamente las inversiones desde el JSON -->
+            </div>
         </section>
+        
+        <section id="pedir-nombre">
+
+            <h2>Guardar tu Nombre (ESTILAR ESTO)</h2>
+
+            <button id="btnPedirNombre">Ingresar Nombre</button>
+
+            <p id="nombreGuardado"></p>
+
+        </section>
+
     </main>
     <div class="footer">
         <footer>

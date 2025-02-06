@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Inversión en Publicidad Digital",
+        "descripcion": "Campañas de publicidad en Google Ads y redes sociales.",
+        "tasaRetorno": 15
+    },
+    {
+        "nombre": "Inversión en SEO",
+        "descripcion": "Optimización del posicionamiento en buscadores.",
+        "tasaRetorno": 20
+    },
+    {
+        "nombre": "Inversión en Contenido",
+        "descripcion": "Creación de contenido relevante para redes y blogs.",
+        "tasaRetorno": 18
+    }
+]

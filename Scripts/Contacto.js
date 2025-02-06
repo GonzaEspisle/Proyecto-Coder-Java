@@ -9,7 +9,6 @@ document.getElementById("formContacto").addEventListener("submit", function (eve
     mensajeError.textContent = ""; 
     mensajeError.style.color = "red";
 
-    // Validaciones
     if (!nombre) {
         mensajeError.textContent = "Por favor, ingresa tu nombre/apellido.";
         return;
